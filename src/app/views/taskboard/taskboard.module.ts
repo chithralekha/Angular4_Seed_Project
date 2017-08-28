@@ -3,9 +3,7 @@ import {BrowserModule} from "@angular/platform-browser";
 
 import {TaskboardComponent} from "./taskboard.component";
 @NgModule({
-  declarations: [TaskboardComponent],
-  imports     : [BrowserModule],
-  exports     : [TaskboardComponent],
+  imports     : [BrowserModule]
 })
 
 export class TaskboardModule {}

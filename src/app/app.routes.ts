@@ -7,6 +7,8 @@ import {Dashboard4Component} from "./views/dashboards/dashboard4.component";
 import {Dashboard41Component} from "./views/dashboards/dashboard41.component";
 import {Dashboard5Component} from "./views/dashboards/dashboard5.component";
 
+import {TaskboardComponent} from "./views/taskboard/taskboard.component";
+
 import {StarterViewComponent} from "./views/appviews/starterview.component";
 import {LoginComponent} from "./views/appviews/login.component";
 
@@ -20,7 +22,10 @@ export const ROUTES:Routes = [
 
   // App views
   {
-    path: 'taskboard', component: BasicLayoutComponent
+    path: 'taskboard', component: BasicLayoutComponent,
+    children: [
+      {path: 'taskboard', component: TaskboardComponent}
+      ]
   },
   {
     path: 'dashboards', component: BasicLayoutComponent,

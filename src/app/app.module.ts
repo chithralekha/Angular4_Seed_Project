@@ -14,10 +14,12 @@ import {AppviewsModule} from "./views/appviews/appviews.module";
 
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
+import { TaskboardComponent } from './views/taskboard/taskboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskboardComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import {LayoutsModule} from "./components/common/layouts/layouts.module";
     DashboardsModule,
     LayoutsModule,
     AppviewsModule,
+    TaskboardModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

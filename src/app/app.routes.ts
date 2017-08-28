@@ -20,6 +20,12 @@ export const ROUTES:Routes = [
 
   // App views
   {
+    path: 'taskboard', component: BasicLayoutComponent,
+    children: [
+      {path: 'taskboard', component: TaskboardComponent}
+    ]
+  },
+  {
     path: 'dashboards', component: BasicLayoutComponent,
     children: [
       {path: 'dashboard1', component: Dashboard1Component},

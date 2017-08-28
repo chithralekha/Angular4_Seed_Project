@@ -9,10 +9,10 @@ declare var jQuery:any;
 export class BlankLayoutComponent {
 
   ngAfterViewInit() {
-    jQuery('body').addClass('gray-bg');
+    jQuery('body').addClass('login-bg');
   }
 
   ngOnDestroy() {
-    jQuery('body').removeClass('gray-bg');
+    jQuery('body').removeClass('login-bg');
   }
 }

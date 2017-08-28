@@ -14,12 +14,10 @@ import {AppviewsModule} from "./views/appviews/appviews.module";
 
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
-import { TaskboardComponent } from './views/taskboard/taskboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TaskboardComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

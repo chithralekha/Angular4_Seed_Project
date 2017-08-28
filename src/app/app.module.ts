@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 // App views
 import {DashboardsModule} from "./views/dashboards/dashboards.module";
 import {AppviewsModule} from "./views/appviews/appviews.module";
+import {TaskboardModule} from "./views/taskboard/taskboard.module";
 
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";

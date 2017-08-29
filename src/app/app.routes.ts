@@ -46,7 +46,7 @@ export const ROUTES:Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'dashboards/dashboard1', component: Dashboard1Component}
+      {path: 'dashboard1', component: Dashboard1Component}
     ]
   },
   {

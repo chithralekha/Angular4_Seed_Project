@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import {RouterModule} from "@angular/router";
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
+
 import {ROUTES} from "./app.routes";
 import { AppComponent } from './app.component';
 
@@ -12,6 +13,7 @@ import { AppComponent } from './app.component';
 import {DashboardsModule} from "./views/dashboards/dashboards.module";
 import {AppviewsModule} from "./views/appviews/appviews.module";
 import {TaskboardModule} from "./views/taskboard/taskboard.module";
+import { TasksSummaryService } from './views/taskboard/tasks.service';
 
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
@@ -32,7 +34,7 @@ import { TaskboardComponent } from './views/taskboard/taskboard.component';
     TaskboardModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

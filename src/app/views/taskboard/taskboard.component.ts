@@ -13,18 +13,21 @@ import { SortablejsOptions } from 'angular-sortablejs';
 export class TaskboardComponent implements OnInit, OnDestroy {
   tasks: Promise<Task[]>;
   subscription: Subscription;
-  sortableOptions : {
-    };
+  options : SortablejsOptions = {
+    group : 'test'
+  };
 
   constructor(private taskService: TasksSummaryService,
               private router: Router,
               private route: ActivatedRoute) {
+                this.options = {
+    onUpdate: (event: any) => {
+      alert('hi');
+    }
+  };
   }
 
   ngOnInit() {
-    this.sortableOptions = {
-        connectWith: ".connectList"
-    };
       this.getTaskSummary();
       
   }

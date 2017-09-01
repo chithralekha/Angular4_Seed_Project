@@ -32,7 +32,7 @@
                             <button type="button" class="btn btn-sm btn-white" ng-click="openTaskDetailsDialog(null)"> <i class="fa fa-plus"></i> Add task</button>
                         </span>
                     </div>
-                    <ul ui-sortable="sortableOptions" class="sortable-list connectList agile-list" [sortablejs]="tasks" ng-model="tasks">
+                    <ul ui-sortable="sortableOptions" class="sortable-list connectList agile-list" [sortablejs]="tasks" [sortablejsOptions]="options" ng-model="tasks">
                         <li *ngFor="let task of tasks | async">
                             <div class="agile-detail">
                                 <button type="button"  modal-trigger size="'lg'" title="'{{task.title}}'" id="'{{task.id}}'" message="'This is a test'" class="btn btn-w-m btn-xs btn-link">{{task.title}} </button>

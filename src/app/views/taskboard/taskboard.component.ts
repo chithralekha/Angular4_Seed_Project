@@ -12,6 +12,7 @@ import { SortablejsOptions } from 'angular-sortablejs';
 })
 export class TaskboardComponent implements OnInit, OnDestroy {
   tasks: Promise<Task[]>;
+  tasks2 : Promise<Task[]>;
   subscription: Subscription;
   options : SortablejsOptions = {
     group : 'test'
@@ -21,9 +22,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
               private router: Router,
               private route: ActivatedRoute) {
                 this.options = {
-    onUpdate: (event: any) => {
-      alert('hi');
-    }
+              group : 'test'
   };
   }
 
@@ -33,6 +32,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
   }
   getTaskSummary() {
     this.tasks = this.taskService.getTaskSummary();
+    this.tasks2 = this.taskService.getTaskSummary();
     //alert(this.tasks);
   }
   onNewRecipe() {

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Task } from './task.model';
 import {TasksSummaryService } from './tasks.service';
-
+import { SortablejsOptions } from 'angular-sortablejs';
 @Component({
   selector: 'app-taskboard',
   templateUrl: './taskboard.component.html',
@@ -28,9 +28,9 @@ export class TaskboardComponent implements OnInit, OnDestroy {
       this.getTaskSummary();
       
   }
-  getTaskSummary(){
-this.tasks = this.taskService.getTaskSummary();
- alert(this.tasks);
+  getTaskSummary() {
+    this.tasks = this.taskService.getTaskSummary();
+    //alert(this.tasks);
   }
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route});

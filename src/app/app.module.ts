@@ -14,7 +14,7 @@ import {DashboardsModule} from "./views/dashboards/dashboards.module";
 import {AppviewsModule} from "./views/appviews/appviews.module";
 import {TaskboardModule} from "./views/taskboard/taskboard.module";
 import { TasksSummaryService } from './views/taskboard/tasks.service';
-
+import {SortablejsModule} from 'angular-sortablejs';
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
 import { TaskboardComponent } from './views/taskboard/taskboard.component';
@@ -32,6 +32,7 @@ import { TaskboardComponent } from './views/taskboard/taskboard.component';
     LayoutsModule,
     AppviewsModule,
     TaskboardModule,
+    SortablejsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService],

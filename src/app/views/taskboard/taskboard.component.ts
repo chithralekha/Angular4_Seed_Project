@@ -93,6 +93,8 @@ export class TaskboardComponent implements OnInit, OnDestroy {
     alert('hi');
   }
   ngOnInit() {
+    this.bcp = parseInt(this.route.snapshot.params['bcp']);
+    alert(this.bcp);
     this.route.params.subscribe( params =>
         this.bcp = params['bcp']);
     alert(this.bcp);

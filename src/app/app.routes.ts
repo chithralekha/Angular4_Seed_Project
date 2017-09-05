@@ -23,8 +23,9 @@ export const ROUTES:Routes = [
   // App views
   {
     path: 'taskboard', component: BasicLayoutComponent,
+     runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     children: [
-      {path: 'taskboard/:bcp?filterId', component: TaskboardComponent}
+      {path: 'taskboard/:bcp', component: TaskboardComponent}
       ]
   },
   {

@@ -11,8 +11,63 @@ import { SortablejsOptions } from 'angular-sortablejs';
   styleUrls: ['./taskboard.component.css']
 })
 export class TaskboardComponent implements OnInit, OnDestroy {
-  tasks: Promise<Task[]>;
-  tasks2 : Promise<Task[]>;
+  // tasks: Promise<Task[]>;
+  // tasks2 : Promise<Task[]>;
+  tasks : Task[];
+  tasks3 = [{
+            content: 'Simply dummy text of the printing and typesetting industry.',
+            date: '12.10.2015',
+            statusClass: 'warning',
+            tagName: 'Mark'
+        },
+        {
+            content: 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default.',
+            date: '05.04.2015',
+            statusClass: 'success',
+            tagName: 'Tag'
+        },
+        {
+            content: 'Sometimes by accident, sometimes on purpose (injected humour and the like).',
+            date: '16.11.2015',
+            statusClass: 'info',
+            tagName: 'Mark'
+        }];
+        tasks4 = [{
+            content: 'Simply dummy text of the printing and typesetting industry.',
+            date: '12.10.2015',
+            statusClass: 'warning',
+            tagName: 'Mark'
+        },
+        {
+            content: 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default.',
+            date: '05.04.2015',
+            statusClass: 'success',
+            tagName: 'Tag'
+        },
+        {
+            content: 'Sometimes by accident, sometimes on purpose (injected humour and the like).',
+            date: '16.11.2015',
+            statusClass: 'info',
+            tagName: 'Mark'
+        }];
+        tasks5 = [{
+            content: 'Simply dummy text of the printing and typesetting industry.',
+            date: '12.10.2015',
+            statusClass: 'warning',
+            tagName: 'Mark'
+        },
+        {
+            content: 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default.',
+            date: '05.04.2015',
+            statusClass: 'success',
+            tagName: 'Tag'
+        },
+        {
+            content: 'Sometimes by accident, sometimes on purpose (injected humour and the like).',
+            date: '16.11.2015',
+            statusClass: 'info',
+            tagName: 'Mark'
+        }];
   subscription: Subscription;
   options : SortablejsOptions = {
     group : 'test'
@@ -22,17 +77,25 @@ export class TaskboardComponent implements OnInit, OnDestroy {
               private router: Router,
               private route: ActivatedRoute) {
                 this.options = {
-              group : 'test'
+              group : 'test',
+              onUpdate: (event: any) => {
+                alert('hi');
+      this.postChangesToServer();
+    }
   };
   }
-
+  postChangesToServer() {
+    alert('hi');
+  }
   ngOnInit() {
       this.getTaskSummary();
       
   }
   getTaskSummary() {
-    this.tasks = this.taskService.getTaskSummary();
-    this.tasks2 = this.taskService.getTaskSummary();
+    // this.tasks = this.taskService.getTaskSummary();
+    // this.tasks2 = this.taskService.getTaskSummary();
+    this.taskService.getTaskSummary()
+    .subscribe(tasks => this.tasks = tasks);
     //alert(this.tasks);
   }
   onNewRecipe() {

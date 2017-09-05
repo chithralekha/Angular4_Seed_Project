@@ -32,8 +32,8 @@
                             <button type="button" class="btn btn-sm btn-white" ng-click="openTaskDetailsDialog(null)"> <i class="fa fa-plus"></i> Add task</button>
                         </span>
                     </div>
-                    <ul class="sortable-list connectList agile-list" [sortablejs]="tasks" [sortablejsOptions]="options" ng-model="tasks">
-                        <li *ngFor="let task of tasks | async">
+                    <ul class="sortable-list connectList agile-list" [sortablejs]="tasks" [sortablejsOptions]="options">
+                        <li *ngFor="let task of tasks">
                             <div class="agile-detail">
                                 <button type="button"  modal-trigger size="'lg'" title="'{{task.title}}'" id="'{{task.id}}'" message="'This is a test'" class="btn btn-w-m btn-xs btn-link">{{task.title}} </button>
                                 <p class="pull-right"><i class="fa fa-clock-o"></i>{{task.due|date}}</p>
@@ -52,14 +52,14 @@
                 <div class="ibox-content">
                     <h3>Active</h3>
                     <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
-                    <ul  class="sortable-list connectList agile-list" [sortablejs]="tasks2" [sortablejsOptions]="options" ng-model="tasks">
-                        <li *ngFor="let task of tasks2 | async">
+                    <ul  class="sortable-list connectList agile-list" [sortablejs]="tasks4" [sortablejsOptions]="options">
+                        <li *ngFor="let task of tasks4">
                            <div class="agile-detail">                               
-                                  <button type="button"  modal-trigger size="'lg'" title="'{{task.title}}'" id="'{{task.id}}'" message="'This is a test'" class="btn btn-w-m btn-xs btn-link">{{task.title}} </button>
-                                <p class="pull-right"><i class="fa fa-clock-o"></i>{{task.due|date}}</p>                         
+                                  <button type="button"  modal-trigger size="'lg'" title="'{{task.content}}'" id="'{{task.content}}'" message="'This is a test'" class="btn btn-w-m btn-xs btn-link">{{task.title}} </button>
+                                <p class="pull-right"><i class="fa fa-clock-o"></i>date</p>                         
                             </div>  
                             <div class="agile-detail">                               
-                                  {{task.code}}                                                        
+                                  {{task.content}}                                                        
                             </div>                           
                         </li>
                     </ul>
@@ -72,14 +72,14 @@
                 <div class="ibox-content">
                     <h3>Completed</h3>
                     <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
-                    <ul class="sortable-list connectList agile-list" [sortablejs]="tasks" [sortablejsOptions]="options" ng-model="tasks">
-                        <li *ngFor="let task of tasks | async">
+                    <ul class="sortable-list connectList agile-list" [sortablejs]="tasks5" [sortablejsOptions]="options">
+                        <li *ngFor="let task of tasks5">
                             <div class="agile-detail">
-                                <button type="button"  modal-trigger size="'lg'" title="'{{task.title}}'" id="'{{task.id}}'" message="'This is a test'" class="btn btn-w-m btn-xs btn-link">{{task.title}} </button>
-                                <p class="pull-right"><i class="fa fa-clock-o"></i>{{task.due|date}}</p>  
+                                <button type="button"  modal-trigger size="'lg'" title="'{{task.content}}'" id="'{{task.content}}'" message="'This is a test'" class="btn btn-w-m btn-xs btn-link">{{task.title}} </button>
+                                <p class="pull-right"><i class="fa fa-clock-o"></i>date</p>  
                             </div>
                             <div class="agile-detail">
-                                {{task.code}}                                
+                                {{task.content}}                                
                             </div>
                         </li>
                     </ul>

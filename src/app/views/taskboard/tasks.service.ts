@@ -22,7 +22,7 @@ export class TasksSummaryService {
   getTaskSummary() {
     return this.http.get('http://ec2-52-33-130-108.us-west-2.compute.amazonaws.com:8087/MagpieAPI/api/WorkingSets/'+ 1 + '/TaskInfos?filterId=' + 1)
       .map((response: Response) => <Task[]>response.json().taskInfos)
-      .toPromise()
+      .do(data => console.log(data))
       .catch(this.handleError);
   }
   private handleError(error: Response) {

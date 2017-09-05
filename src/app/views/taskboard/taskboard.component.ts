@@ -13,7 +13,12 @@ import { SortablejsOptions } from 'angular-sortablejs';
 export class TaskboardComponent implements OnInit, OnDestroy {
   // tasks: Promise<Task[]>;
   // tasks2 : Promise<Task[]>;
-  tasks : Task[];
+  tasks: Task[];
+  todoList : Task[];
+  inProgressList : Task[];
+  completedList : Task[];
+  bcp : number;
+  filterId : number;
   tasks3 = [{
             content: 'Simply dummy text of the printing and typesetting industry.',
             date: '12.10.2015',
@@ -32,7 +37,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
             statusClass: 'info',
             tagName: 'Mark'
         }];
-        tasks4 = [{
+  tasks4 = [{
             content: 'Simply dummy text of the printing and typesetting industry.',
             date: '12.10.2015',
             statusClass: 'warning',
@@ -50,7 +55,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
             statusClass: 'info',
             tagName: 'Mark'
         }];
-        tasks5 = [{
+  tasks5 = [{
             content: 'Simply dummy text of the printing and typesetting industry.',
             date: '12.10.2015',
             statusClass: 'warning',
@@ -88,6 +93,9 @@ export class TaskboardComponent implements OnInit, OnDestroy {
     alert('hi');
   }
   ngOnInit() {
+    this.route.params.subscribe( params =>
+        this.bcp = params['bcp']);
+    alert(this.bcp);
       this.getTaskSummary();
       
   }

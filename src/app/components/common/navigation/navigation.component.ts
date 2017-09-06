@@ -39,7 +39,7 @@ export class NavigationComponent implements OnInit {
    getNavigationSummary() {
     // this.tasks = this.taskService.getTaskSummary();
     // this.tasks2 = this.taskService.getTaskSummary();
-    alert('in NAvigation');
+    alert('in Navigation');
     this.navigationService.getNavigationSummary()
     .subscribe(workingSets => this.workingSets = workingSets);
     alert(this.workingSets);

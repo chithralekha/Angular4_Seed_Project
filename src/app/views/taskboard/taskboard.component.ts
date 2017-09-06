@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute,Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Task } from './task.model';
@@ -19,6 +19,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
   completedList : Task[];
   bcp : number;
   filterId : number;
+  sub : Subscription;
   tasks3 = [{
             content: 'Simply dummy text of the printing and typesetting industry.',
             date: '12.10.2015',
@@ -88,7 +89,11 @@ export class TaskboardComponent implements OnInit, OnDestroy {
       this.postChangesToServer();
     }
   };
-  }
+  this.sub = this.route.params.subscribe(params => {
+
+            this.filterId = + params['filterId'];
+  });
+              }
   postChangesToServer() {
     alert('hi');
   }
@@ -106,13 +111,12 @@ export class TaskboardComponent implements OnInit, OnDestroy {
       this.getTaskSummary(1,bcp);
     })
     this.route.params.subscribe( params => {
-      this.filterId =this.route.snapshot.params["filterId"]
+      this.filterId =params['filterId']
       alert(this.filterId);
       let bcp = this.route.queryParams["bcp"];
       alert(bcp);
       this.getTaskSummary(this.filterId,bcp);
     });
-
     //   this.route.queryParams.subscribe( params => this.bcp = params['bcp']);
     //   alert(this.bcp);
       

@@ -15,7 +15,7 @@ declare var jQuery:any;
   templateUrl: 'navigation.template.html'
 })
 
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
   workingSets : WorkingSet[];
   constructor(private router: Router,
   private navigationService: NavigationService,
@@ -32,11 +32,14 @@ export class NavigationComponent {
   }
   
    ngOnInit() {
-     this.navigationService.getNavigationSummary();
+     alert('hi');
+
+     this.getNavigationSummary();
    }
    getNavigationSummary() {
     // this.tasks = this.taskService.getTaskSummary();
     // this.tasks2 = this.taskService.getTaskSummary();
+    alert('in NAvigation');
     this.navigationService.getNavigationSummary()
     .subscribe(workingSets => this.workingSets = workingSets);
     alert(this.workingSets);

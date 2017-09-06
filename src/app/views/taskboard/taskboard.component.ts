@@ -93,18 +93,34 @@ export class TaskboardComponent implements OnInit, OnDestroy {
     alert('hi');
   }
   ngOnInit() {
-    this.bcp = parseInt(this.route.snapshot.params['bcp']);
-    alert(this.bcp);
-    this.route.params.subscribe( params =>
-        this.bcp = params['bcp']);
-    alert(this.bcp);
-      this.getTaskSummary();
+    // this.filterId = parseInt(this.route.snapshot.params["filterId"]);
+    // alert(this.filterId);
+    // this.route.params.forEach(params => {
+    //   let filterId = +params["filterId"];
+    //   alert(filterId);
+    //   this.getTaskSummary(1,1);
+    // });
+    this.route.queryParams.forEach(params => {
+      let bcp = params["bcp"];
+      alert(bcp);
+      this.getTaskSummary(1,bcp);
+    })
+    this.route.params.subscribe( params => {
+      this.filterId =this.route.snapshot.params["filterId"]
+      alert(this.filterId);
+      let bcp = this.route.queryParams["bcp"];
+      alert(bcp);
+      this.getTaskSummary(this.filterId,bcp);
+    });
+
+    //   this.route.queryParams.subscribe( params => this.bcp = params['bcp']);
+    //   alert(this.bcp);
       
   }
-  getTaskSummary() {
+  getTaskSummary(filterId:number, bcp:number) {
     // this.tasks = this.taskService.getTaskSummary();
     // this.tasks2 = this.taskService.getTaskSummary();
-    this.taskService.getTaskSummary()
+    this.taskService.getTaskSummary(filterId, bcp)
     .subscribe(tasks => this.tasks = tasks);
     //alert(this.tasks);
   }

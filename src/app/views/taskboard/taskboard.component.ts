@@ -98,25 +98,25 @@ export class TaskboardComponent implements OnInit, OnDestroy {
     alert('hi');
   }
   ngOnInit() {
-    // this.filterId = parseInt(this.route.snapshot.params["filterId"]);
-    // alert(this.filterId);
-    // this.route.params.forEach(params => {
-    //   let filterId = +params["filterId"];
-    //   alert(filterId);
-    //   this.getTaskSummary(1,1);
-    // });
+    this.filterId = parseInt(this.route.params['filterId']);
+     alert(this.filterId);
+    this.route.params.forEach(params => {
+      let filterId = +params['filterId'];
+      alert(filterId);
+      this.getTaskSummary(1,1);
+    });
     this.route.queryParams.forEach(params => {
       let bcp = params["bcp"];
       alert(bcp);
       this.getTaskSummary(1,bcp);
     })
-    this.route.params.subscribe( params => {
-      this.filterId =params['filterId']
-      alert(this.filterId);
-      let bcp = this.route.queryParams["bcp"];
-      alert(bcp);
-      this.getTaskSummary(this.filterId,bcp);
-    });
+    // this.route.params.subscribe( params => {
+    //   this.filterId =params['filterId']
+    //   alert(this.filterId);
+    //   let bcp = this.route.queryParams["bcp"];
+    //   alert(bcp);
+    //   this.getTaskSummary(this.filterId,bcp);
+    // });
     //   this.route.queryParams.subscribe( params => this.bcp = params['bcp']);
     //   alert(this.bcp);
       

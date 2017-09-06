@@ -8,6 +8,7 @@ import { DueStatus } from './duestatus.model';
 import { TaskState } from './taskstate.model';
 
 @Injectable()
+
 export class TasksSummaryService {
   constructor(private http: Http) {}
   storeServers(servers: any[]) {

@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute,Params } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import 'jquery-slimscroll';
+
+import {NavigationService } from './navigation.service';
+import { WorkingSet} from '../models/workingSet.model';
 
 declare var jQuery:any;
 
@@ -10,8 +16,10 @@ declare var jQuery:any;
 })
 
 export class NavigationComponent {
-
-  constructor(private router: Router) {}
+  workingSets : WorkingSet[];
+  constructor(private router: Router,
+  private navigationService: NavigationService,
+              private route: ActivatedRoute) {}
 
   ngAfterViewInit() {
     jQuery('#side-menu').metisMenu();
@@ -22,7 +30,17 @@ export class NavigationComponent {
       })
     }
   }
-
+  
+   ngOnInit() {
+     this.navigationService.getNavigationSummary();
+   }
+   getNavigationSummary() {
+    // this.tasks = this.taskService.getTaskSummary();
+    // this.tasks2 = this.taskService.getTaskSummary();
+    this.navigationService.getNavigationSummary()
+    .subscribe(workingSets => this.workingSets = workingSets);
+    alert(this.workingSets);
+  }
   activeRoute(routename: string): boolean{
     return this.router.url.indexOf(routename) > -1;
   }

@@ -25,7 +25,7 @@ export const ROUTES:Routes = [
     path: 'taskboard', component: BasicLayoutComponent,
      runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     children: [
-      {path: 'taskboard/:filterId?bcp', component: TaskboardComponent}
+      {path: 'taskboard/:filterId', component: TaskboardComponent}
       ]
   },
   {

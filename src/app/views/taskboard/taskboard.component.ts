@@ -5,21 +5,25 @@ import { Subscription } from 'rxjs/Subscription';
 import { Task } from './task.model';
 import {TasksSummaryService } from './tasks.service';
 import { SortablejsOptions } from 'angular-sortablejs';
+
 @Component({
   selector: 'app-taskboard',
   templateUrl: './taskboard.component.html',
   styleUrls: ['./taskboard.component.css']
 })
+
 export class TaskboardComponent implements OnInit, OnDestroy {
   // tasks: Promise<Task[]>;
   // tasks2 : Promise<Task[]>;
+
   tasks: Task[];
   todoList : Task[];
   inProgressList : Task[];
   completedList : Task[];
   bcp : number;
   filterId : number;
-  sub : Subscription;
+  sub : any;
+
   tasks3 = [{
             content: 'Simply dummy text of the printing and typesetting industry.',
             date: '12.10.2015',
@@ -83,31 +87,39 @@ export class TaskboardComponent implements OnInit, OnDestroy {
               private router: Router,
               private route: ActivatedRoute) {
                 this.options = {
-              group : 'test',
-              onUpdate: (event: any) => {
-                alert('hi');
-      this.postChangesToServer();
-    }
-  };
-  this.sub = this.route.params.subscribe(params => {
-
-            this.filterId = + params['filterId'];
-  });
+                  group : 'test',
+                  onUpdate: (event: any) => {
+                    alert('hi');
+                    this.postChangesToServer();
+                  }
+                };
+                this.sub = this.route.params.subscribe(params => {
+                  this.filterId = + params['filterId'];
+                });
               }
+
   postChangesToServer() {
     alert('hi');
   }
+
   ngOnInit() {
-    this.filterId = parseInt(this.route.params['filterId']);
-     alert(this.filterId);
+    
+    //alert(this.filterId);
     this.route.params.forEach(params => {
+      
       let filterId = +params['filterId'];
-      alert(filterId);
-      this.getTaskSummary(1,1);
+      this.route.queryParams.subscribe( qParams => {
+        this.bcp = +qParams['bcp'];
+      });
+      
+      //alert(filterId);
+      //alert(this.bcp);
+      this.getTaskSummary(filterId,this.bcp);
     });
+
     this.route.queryParams.forEach(params => {
       let bcp = params["bcp"];
-      alert(bcp);
+      //alert(bcp);
       this.getTaskSummary(1,bcp);
     })
     // this.route.params.subscribe( params => {
@@ -117,6 +129,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
     //   alert(bcp);
     //   this.getTaskSummary(this.filterId,bcp);
     // });
+
     //   this.route.queryParams.subscribe( params => this.bcp = params['bcp']);
     //   alert(this.bcp);
       

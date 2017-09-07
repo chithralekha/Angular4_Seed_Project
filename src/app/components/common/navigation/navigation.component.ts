@@ -17,9 +17,15 @@ declare var jQuery:any;
 
 export class NavigationComponent implements OnInit {
   workingSets : WorkingSet[];
+  bcp : number;
+  filterId:number;
+  sub: any;
+
   constructor(private router: Router,
   private navigationService: NavigationService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute) {
+                 this.filterId = 1;
+              }
 
   ngAfterViewInit() {
     jQuery('#side-menu').metisMenu();
@@ -32,27 +38,41 @@ export class NavigationComponent implements OnInit {
   }
   
    ngOnInit() {
-     alert('hi');
-
+     //alert('hi');
+     this.route.queryParams.subscribe( qParams => {
+       this.bcp = +qParams['bcp'];
+      });
+      
+      this.route.params.subscribe( params => {
+        this.filterId = +params['filterId'];
+        //alert(this.filterId);
+      });
+     
      this.getNavigationSummary();
    }
    getNavigationSummary() {
     // this.tasks = this.taskService.getTaskSummary();
     // this.tasks2 = this.taskService.getTaskSummary();
-    alert('in Navigation');
+    //alert('in Navigation');
     this.navigationService.getNavigationSummary()
     .subscribe(workingSets => this.workingSets = workingSets,
     error =>  alert(error));
     //alert(this.workingSets);
   }
+
   activeRoute(routename: string): boolean{
     return this.router.url.indexOf(routename) > -1;
   }
  
  bcpNavClass(bcp:number) {
-   //alert('hi From bcpNavClass');
+   //alert('hi From bcpNavClass');   
+   if(bcp == this.bcp) return 'active';
+   else return '';
+ }
 
-   if(bcp == 1) return 'active';
+ //following function has not been used.
+ filterNavClass(filterId:number) {
+   if(filterId == this.filterId) return 'active';
    else return '';
  }
 

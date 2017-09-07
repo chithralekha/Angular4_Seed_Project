@@ -21,6 +21,7 @@ export class TasksSummaryService {
       {headers: headers});
   }
   getTaskSummary(filterId:number, bcp:number) {
+    //alert('filterId=' + filterId + 'bcp=' + bcp);
     return this.http.get('http://ec2-52-33-130-108.us-west-2.compute.amazonaws.com:8087/MagpieAPI/api/WorkingSets/'+ bcp + '/TaskInfos?filterId=' + filterId)
       .map((response: Response) => <Task[]>response.json().taskInfos)
       .do(data => console.log('Get all tasks completed', data))

@@ -48,6 +48,12 @@ export class NavigationComponent implements OnInit {
   activeRoute(routename: string): boolean{
     return this.router.url.indexOf(routename) > -1;
   }
+ 
+ bcpNavClass(bcp:number) {
+   //alert('hi From bcpNavClass');
 
+   if(bcp == 1) return 'active';
+   else return '';
+ }
 
 }

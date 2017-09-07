@@ -17,14 +17,21 @@ import { TasksSummaryService } from './views/taskboard/tasks.service';
 import {SortablejsModule} from 'angular-sortablejs';
 
 import { NavigationService } from './components/common/navigation/navigation.service';
+//import { ModalDirective } from './components/common/directives/modal.directive';
+import { AdditionCalculateWindow } from './components/common/directives/modal.directive';
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
 import { TaskboardComponent } from './views/taskboard/taskboard.component';
 
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    TaskboardComponent
+    TaskboardComponent,
+    AdditionCalculateWindow
   ],
   imports: [
     BrowserModule,
@@ -34,10 +41,13 @@ import { TaskboardComponent } from './views/taskboard/taskboard.component';
     LayoutsModule,
     AppviewsModule,
     TaskboardModule,
-    SortablejsModule,
+    SortablejsModule,    
+    ModalModule.forRoot(),
+    BootstrapModalModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ AdditionCalculateWindow ]
 })
 export class AppModule { }

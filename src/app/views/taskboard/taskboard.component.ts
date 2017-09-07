@@ -1,11 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute,Params } from '@angular/router';
+import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Task } from './task.model';
 import {TasksSummaryService } from './tasks.service';
 import { SortablejsOptions } from 'angular-sortablejs';
-
+import { AdditionCalculateWindow, AdditionCalculateWindowData } from '../../components/common/directives/modal.directive';
 @Component({
   selector: 'app-taskboard',
   templateUrl: './taskboard.component.html',
@@ -85,7 +86,8 @@ export class TaskboardComponent implements OnInit, OnDestroy {
 
   constructor(private taskService: TasksSummaryService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              vcRef: ViewContainerRef, public modal: Modal) {
                 this.options = {
                   group : 'test',
                   onUpdate: (event: any) => {
@@ -159,6 +161,10 @@ export class TaskboardComponent implements OnInit, OnDestroy {
   }
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route});
+  }
+  
+  openCustom() {
+    this.modal.open(AdditionCalculateWindow, new AdditionCalculateWindowData(2, 3));
   }
 
   ngOnDestroy() {

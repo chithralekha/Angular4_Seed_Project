@@ -6,7 +6,7 @@ export class WorkingSetTemplate {
     public workingSetTemplateGuid : string;
     public name : string;
     public createdByUser : User;
-    public created : Date;
+    public created : string;
     public controlSets : ControlSet[];
 
     constructor(
@@ -14,7 +14,7 @@ export class WorkingSetTemplate {
      workingSetTemplateGuid : string,
      name : string,
      createdByUser : User,
-     created : Date,
+     created : string,
      controlSets : ControlSet[]) {
         this.workingSetTemplateId = workingSetTemplateId;
         this.workingSetTemplateGuid = workingSetTemplateGuid;

@@ -1,7 +1,7 @@
 export class WorkingSetDataModel {
     public workingSetId : number;
     public controlSetId : number;
-    public timestamp : Date;
+    public timestamp : string;
     public totalTasks : number;
     public totalNew : number;
     public totalInProgress : number;
@@ -14,7 +14,7 @@ export class WorkingSetDataModel {
     constructor( 
      workingSetId : number,
      controlSetId : number,
-     timestamp : Date,
+     timestamp : string,
      totalTasks : number,
      totalNew : number,
      totalInProgress : number,

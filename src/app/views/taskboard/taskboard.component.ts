@@ -139,7 +139,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
     // this.tasks2 = this.taskService.getTaskSummary();
     this.taskService.getTaskSummary(filterId, bcp)
     .subscribe(tasks => this.tasks = tasks);
-    //alert(this.tasks);
+    //alert('tasks...' + this.tasks);
   }
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route});

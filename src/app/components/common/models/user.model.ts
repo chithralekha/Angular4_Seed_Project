@@ -11,7 +11,7 @@
             public phoneNumber : string;
             public phoneNumberConfirmed : boolean;
             public twoFactorEnabled : boolean;
-            public lockoutEndDateUtc : Date;
+            public lockoutEndDateUtc : string;
             public lockoutEnabled : boolean;
             public accessFailedCount : number;
             public userName : string;
@@ -24,7 +24,7 @@
             public userNotifications : UserNotification[];
 
             constructor(id: string, email: string, emailConfirmed: boolean,passwordHash: string, securityStamp: string, 
-            phoneNumber: string, phoneNumberConfirmed: boolean, twoFactorEnabled: boolean, lockoutEndDateUtc: Date, lockoutEnabled: boolean,
+            phoneNumber: string, phoneNumberConfirmed: boolean, twoFactorEnabled: boolean, lockoutEndDateUtc: string, lockoutEnabled: boolean,
             accessFailedCount: number, userName: string, firstName: string, lastName: string,  manager: User, phoneCarrier: PhoneCarrier, 
             isActive: boolean, roles: Role[], userNotifications: UserNotification[]) {
                 this.id = id;

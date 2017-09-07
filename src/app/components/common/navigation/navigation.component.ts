@@ -41,8 +41,9 @@ export class NavigationComponent implements OnInit {
     // this.tasks2 = this.taskService.getTaskSummary();
     alert('in Navigation');
     this.navigationService.getNavigationSummary()
-    .subscribe(workingSets => this.workingSets = workingSets);
-    alert(this.workingSets);
+    .subscribe(workingSets => this.workingSets = workingSets,
+    error =>  alert(error));
+    //alert(this.workingSets);
   }
   activeRoute(routename: string): boolean{
     return this.router.url.indexOf(routename) > -1;

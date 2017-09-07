@@ -12,7 +12,7 @@ export class NavigationService {
   getNavigationSummary() {
     return this.http.get('http://ec2-52-33-130-108.us-west-2.compute.amazonaws.com:8087/MagpieAPI/api/WorkingSets/')
       .map((response: Response) => <WorkingSet[]>response.json())
-      .do(data => console.log('Get all WorkingSets completed'))
+      .do(data => console.log('Get all WorkingSets completed',data))
       .catch(this.handleError);
   }
   private handleError(error: Response) {

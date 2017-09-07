@@ -5,7 +5,7 @@ export class WorkingSet {
     public workingSetGuid : string;
     public name : string;
     public description : string;
-    public deployed : Date;
+    public deployed : string;
     public deployedByUser : User;
     public workingSetCompliance : number;
     public workingSetTemplate : string;
@@ -16,7 +16,7 @@ export class WorkingSet {
      workingSetGuid : string,
      name : string,
      description : string,
-     deployed : Date,
+     deployed : string,
      deployedByUser : User,
      workingSetCompliance : number,
      workingSetTemplate : string,

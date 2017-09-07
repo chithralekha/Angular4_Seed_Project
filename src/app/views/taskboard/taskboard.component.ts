@@ -141,6 +141,22 @@ export class TaskboardComponent implements OnInit, OnDestroy {
     .subscribe(tasks => this.tasks = tasks);
     //alert('tasks...' + this.tasks);
   }
+  taskDueStatusClass(task:Task) {
+     var dueStatusClass = 'danger-element';
+        switch(task.dueStatus.status)
+        {
+            case 'Overdue' :
+                dueStatusClass = 'danger-element';
+                break;
+            case 'On Time' :
+                dueStatusClass  = 'success-element';
+                break;
+            case 'In Jeopardy' :
+                dueStatusClass = 'warning-element';
+                break;
+        }
+        return dueStatusClass;
+  }
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }

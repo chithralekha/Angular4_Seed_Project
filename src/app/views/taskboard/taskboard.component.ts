@@ -6,7 +6,10 @@ import { Subscription } from 'rxjs/Subscription';
 import { Task } from './task.model';
 import {TasksSummaryService } from './tasks.service';
 import { SortablejsOptions } from 'angular-sortablejs';
+import {Inject} from '@angular/core';
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import { AdditionCalculateWindow, AdditionCalculateWindowData } from '../../components/common/directives/modal.directive';
+import {MdModalDialog} from '../../components/common/directives/mdModal.component';
 @Component({
   selector: 'app-taskboard',
   templateUrl: './taskboard.component.html',
@@ -24,6 +27,8 @@ export class TaskboardComponent implements OnInit, OnDestroy {
   bcp : number;
   filterId : number;
   sub : any;
+  name:string;
+  animal:string;
 
   tasks3 = [{
             content: 'Simply dummy text of the printing and typesetting industry.',
@@ -87,7 +92,8 @@ export class TaskboardComponent implements OnInit, OnDestroy {
   constructor(private taskService: TasksSummaryService,
               private router: Router,
               private route: ActivatedRoute,
-              vcRef: ViewContainerRef, public modal: Modal) {
+              vcRef: ViewContainerRef, public modal: Modal,
+              public dialog: MdDialog) {
                 this.options = {
                   group : 'test',
                   onUpdate: (event: any) => {
@@ -98,6 +104,8 @@ export class TaskboardComponent implements OnInit, OnDestroy {
                 this.sub = this.route.params.subscribe(params => {
                   this.filterId = + params['filterId'];
                 });
+                this.name = 'task';
+                this.animal = 'animal';
               }
 
   postChangesToServer() {
@@ -164,9 +172,23 @@ export class TaskboardComponent implements OnInit, OnDestroy {
   }
   
   openCustom() {
-    this.modal.open(AdditionCalculateWindow, new AdditionCalculateWindowData(2, 3));
+   // this.modal.open(AdditionCalculateWindow, new AdditionCalculateWindowData(2, 3));
   }
 
+  openDialog(task:Task): void {
+    alert(task.code);
+    let dialogRef = this.dialog.open(MdModalDialog,{
+        height: '400px',
+        width: '600px',
+       disableClose:true,
+      data: { name: task.code, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
   ngOnDestroy() {
     //this.subscription.unsubscribe();
   }

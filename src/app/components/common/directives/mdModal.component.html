@@ -1,0 +1,75 @@
+<!--<h1 md-dialog-title>Hi {{data.name}}</h1>
+<div md-dialog-content style="padding-left: 10px;padding-right: 10px;">
+  <p>What's your favorite animal?</p>
+  <md-form-field>
+    <input mdInput tabindex="1" [(ngModel)]="data.animal">
+  </md-form-field>
+</div>
+<div md-dialog-actions>
+  <button md-button [md-dialog-close]="data.animal" tabindex="2">Ok</button>
+  <button md-button (click)="onNoClick()" tabindex="-1">No Thanks</button>
+</div>-->
+<div md-dialog-content>
+<md-tab-group>
+  <md-tab label="Edit">
+    <h1>Some tab content</h1>
+    <p>{{data.name}}!!</p>
+  </md-tab>
+  <md-tab label="Comment">
+    <h1>Some more tab content</h1>
+    <p>...</p>
+  </md-tab>
+  <md-tab label="RACI">
+    <h1>Some more tab content</h1>
+    <p>...</p>
+  </md-tab>
+</md-tab-group>
+</div>
+<div md-dialog-actions>
+  <button md-button [md-dialog-close]="data.animal" tabindex="2">Ok</button>
+  <button md-button (click)="onNoClick()" tabindex="-1">No Thanks</button>
+</div>
+<!--<div class="ibox">
+<div class="ibox-content">
+<form role="form" name="signup_form2" novalidate ng-submit="vm.confirm()">
+  <div class="modal-body">
+    <div class = "row">
+        <div class = "row">
+            <div class = "col-lg-2" style="font-size : 12px; padding-top : 8px"> 
+                <input type="text" style="font-size : 12px; padding-top : 8px" class="form-control no-border" name="TaskCode" ng-model="vm.content.code"  placeholder="Code" required ng-minlength="3" />
+                <div class="m-t-xs" ng-show="signup_form2.TaskCode.$invalid && signup_form2.TaskCode.$dirty">
+                    <small class="text-danger" ng-show="signup_form2.TaskCode.$error.required">Please input a Task Code</small>
+                    <small class="text-danger" ng-show="signup_form2.TaskCode.$error.minlength">Your Task Code is required to be at least 3 characters</small>
+                    <small class="text-danger" ng-show="signup_form2.TaskCode.$error.maxlength">Your Task Code cannot be longer than 20 characters</small>
+                </div>
+            </div>
+            
+            <div class = "col-lg-9" style="font-weight:bold;">
+                <input type="text" style="font-size:25px" class="form-control no-border" name="TaskTitle" ng-model="vm.content.title"  placeholder="Task Title" required ng-minlength="3" />
+                <div class="m-t-xs" ng-show="signup_form2.TaskTitle.$invalid && signup_form2.TaskTitle.$dirty">
+                    <small class="text-danger" style="font-weight:normal;" ng-show="signup_form2.TaskTitle.$error.required">Please input a Task Title</small>
+                    <small class="text-danger" ng-show="signup_form2.TaskTitle.$error.minlength">Your Task Title is required to be at least 3 characters</small>
+                    <small class="text-danger" ng-show="signup_form2.TaskTitle.$error.maxlength">Your Task Title cannot be longer than 20 characters</small>
+                </div>
+            </div>
+            <div class="col-lg-1 pull-right">
+                <button type="button" class="close" ng-click="vm.cancel()">X</button>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-lg-4 hidden">
+              
+            </div>
+            <div class="col-lg-4">
+            
+            </div>
+            <div class = "col-lg-2 pull-right">
+            <button type="button" class="btn btn-info pull-right" ng-click="vm.confirm()" ng-disabled="signup_form2.$invalid"><i class="fa fa-save"></i> Save</button></div> 
+        </div>
+</div>
+</div>
+
+</form>
+    </div>
+</div>-->

@@ -25,13 +25,17 @@ import { TaskboardComponent } from './views/taskboard/taskboard.component';
 
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
-
-
+import {PlunkerMaterialModule} from './components/common/models/materialModule';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MdModalDialog} from './components/common/directives/mdModal.component';
 @NgModule({
   declarations: [
     AppComponent,
     TaskboardComponent,
-    AdditionCalculateWindow
+    AdditionCalculateWindow,
+    
+    MdModalDialog
   ],
   imports: [
     BrowserModule,
@@ -44,10 +48,13 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
     SortablejsModule,    
     ModalModule.forRoot(),
     BootstrapModalModule,
+    PlunkerMaterialModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService],
   bootstrap: [AppComponent],
-  entryComponents: [ AdditionCalculateWindow ]
+  entryComponents: [ AdditionCalculateWindow, MdModalDialog ]
 })
 export class AppModule { }

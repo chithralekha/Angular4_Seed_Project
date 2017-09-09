@@ -23,6 +23,12 @@
     <input mdInput placeholder="Due" value="{{data.due}}">
   </md-form-field>
   <br/>
+  <md-form-field>
+  <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="data.due" [ngModelOptions]="{standalone: true}">
+  <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+  <md-datepicker #picker></md-datepicker>
+</md-form-field>
+<br/>
 <md-select placeholder="Task State" [(ngModel)]="data.state" [ngModelOptions]="{standalone: true}">
   <md-option *ngFor="let state of states" [value]="state.value">
     {{ state.viewValue }}

@@ -6,10 +6,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   templateUrl: 'mdModal.component.html',
 })
 export class MdModalDialog {
-
+    states = [
+    {value: '1', viewValue: 'New'},
+    {value: '2', viewValue: 'Active'},
+    {value: '3', viewValue: 'Completed'}
+  ];
+  taskstate:string;
   constructor(
     public dialogRef: MdDialogRef<MdModalDialog>,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
+    @Inject(MD_DIALOG_DATA) public data: any) {this.taskstate = data.state; }
 
   onNoClick(): void {
     this.dialogRef.close();

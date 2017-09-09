@@ -12,8 +12,23 @@
 <div md-dialog-content>
 <md-tab-group>
   <md-tab label="Edit">
-    <h1>Some tab content</h1>
+    <h1>Task Edit</h1>
     <p>{{data.name}}!!</p>
+    <form class="example-form">
+  <md-form-field class="example-full-width">
+    <input mdInput placeholder="Code" value="{{data.code}}">
+  </md-form-field>
+  <br/>
+  <md-form-field class="example-full-width">
+    <input mdInput placeholder="Due" value="{{data.due}}">
+  </md-form-field>
+  <br/>
+<md-select placeholder="Task State" [(ngModel)]="data.state" [ngModelOptions]="{standalone: true}">
+  <md-option *ngFor="let state of states" [value]="state.value">
+    {{ state.viewValue }}
+  </md-option>
+</md-select>
+</form>
   </md-tab>
   <md-tab label="Comment">
     <h1>Some more tab content</h1>

@@ -181,7 +181,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
         height: '400px',
         width: '600px',
        disableClose:true,
-      data: { name: task.code, animal: this.animal }
+      data: { name: task.code, animal: this.animal, due:task.due, code:task.code, state:task.taskState }
     });
 
     dialogRef.afterClosed().subscribe(result => {

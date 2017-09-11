@@ -45,13 +45,7 @@ export const ROUTES:Routes = [
     children: [
       {path: 'dashboard41', component: Dashboard41Component}
     ]
-  },
-  {
-    path: '', component: BasicLayoutComponent,
-    children: [
-      {path: 'dashboard1', component: Dashboard1Component}
-    ]
-  },
+  },  
   {
     path: '', component: BlankLayoutComponent,
     children: [
@@ -60,5 +54,5 @@ export const ROUTES:Routes = [
   },
 
   // Handle all other routes
-  {path: '**',  redirectTo: 'dashboards/dashboard1'}
+  {path: '**',  redirectTo: 'login'}
 ];

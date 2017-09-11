@@ -14,6 +14,6 @@ export class LoginComponent {
               }
   onsubmit() {
     //alert('hi');
-     this.router.navigate(['/dashboards/dashboard1']);
+     this.router.navigate(['dashboards/dashboard1']);
   }
  }

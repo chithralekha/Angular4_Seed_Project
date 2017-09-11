@@ -33,9 +33,11 @@ export class Dashboard1Component implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
+   public chartColors: Array<any> = [
+    ];
   public barChartLegend:boolean = true;
   public barChartData:any[] = [
-    {data: [100]}
+    {data: []}
   ];
   data : any[]=[];
   constructor(private router: Router,
@@ -46,14 +48,31 @@ export class Dashboard1Component implements OnInit {
    this.route.data.subscribe((data: { workingSets: WorkingSet[] }) => {
       this.workingSets = data.workingSets;
       //alert(this.workingSets[0].id);
-      this.workingSets.forEach(element => {
-        this.barChartLabels.push(element.name);
-        //remove the following line
-        //this.barChartData[0].data.push(element.workingSetCompliance);
-      });
+      for(var counter =0; counter < this.workingSets.length; counter++) {
+        this.barChartLabels.push(this.workingSets[counter].name);
+        this.chartColors.push({backgroundColor : this.determineColor(this.workingSets[counter].workingSetCompliance)});
+        this.barChartData[counter].data.push(50);
+      };
       //this.barChartData.push(this.data);
     });
  } 
+ determineColor(compliance:number) {
+   var complianceColorCode = null;
+        switch(true)
+        {
+            case (compliance >=0 && compliance <= 39) :
+                complianceColorCode = 'red';
+                break;
+            case (compliance >= 40 && compliance <= 69) :
+                complianceColorCode  = 'orange';
+                break;
+            case (compliance >= 70 && compliance <= 100) :
+                complianceColorCode = 'green';
+                break;
+        }
+        //alert(complianceColorCode);
+        return complianceColorCode;
+ }
   // events
   public chartClicked(e:any):void {
     console.log(e);

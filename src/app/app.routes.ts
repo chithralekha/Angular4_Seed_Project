@@ -15,10 +15,10 @@ import {LoginComponent} from "./views/appviews/login.component";
 import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.component";
 import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
 import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationlayout.component";
-
+import { WorkingSetResolver } from './views/dashboards/workingSet-resolver.service';
 export const ROUTES:Routes = [
   // Main redirect
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', redirectTo: 'dashboards/dashboard1', pathMatch: 'full'},
 
   // App views
   {
@@ -31,7 +31,9 @@ export const ROUTES:Routes = [
   {
     path: 'dashboards', component: BasicLayoutComponent,
     children: [
-      {path: 'dashboard1', component: Dashboard1Component},
+      {path: 'dashboard1', component: Dashboard1Component, resolve: {
+          workingSets: WorkingSetResolver
+        }},
       {path: 'dashboard2', component: Dashboard2Component},
       {path: 'dashboard3', component: Dashboard3Component},
       {path: 'dashboard4', component: Dashboard4Component},
@@ -58,5 +60,5 @@ export const ROUTES:Routes = [
   },
 
   // Handle all other routes
-  {path: '**',  redirectTo: 'login'}
+  {path: '**',  redirectTo: 'dashboards/dashboard1'}
 ];

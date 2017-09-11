@@ -29,6 +29,7 @@ import {PlunkerMaterialModule} from './components/common/models/materialModule';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdModalDialog} from './components/common/directives/mdModal.component';
+import { WorkingSetResolver } from './views/dashboards/workingSet-resolver.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,7 @@ import {MdModalDialog} from './components/common/directives/mdModal.component';
     NoopAnimationsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService, WorkingSetResolver],
   bootstrap: [AppComponent],
   entryComponents: [ AdditionCalculateWindow, MdModalDialog ]
 })

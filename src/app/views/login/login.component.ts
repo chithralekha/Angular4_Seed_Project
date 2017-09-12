@@ -10,20 +10,23 @@ import { UserProfileService } from '../../../app/core/user-profile.service';
 })
 
 export class LoginComponent implements OnDestroy {
-private loginSub: Subscription;
+  
+  private loginSub: Subscription;
   constructor(
               private router: Router,
               private route: ActivatedRoute,
               private loginService: LoginService,
               private userProfileService: UserProfileService) {
               }
-public get isLoggedIn() : boolean {
+  public get isLoggedIn() : boolean {
     return this.userProfileService.isLoggedIn;
   }              
+  
   onsubmit() {
     //alert('hi');
      this.router.navigate(['dashboards/dashboard1']);
   }
+
   login() {
     this.loginSub = this.loginService
       .login();
@@ -37,9 +40,10 @@ public get isLoggedIn() : boolean {
       //   //}
       // });
   }
+
   ngOnDestroy() {
     if (this.loginSub) {
       this.loginSub.unsubscribe();
     }
   }
- }
+}

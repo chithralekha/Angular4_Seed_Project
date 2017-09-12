@@ -148,7 +148,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
     // this.tasks = this.taskService.getTaskSummary();
     // this.tasks2 = this.taskService.getTaskSummary();
     this.taskService.getTaskSummary(filterId, bcp)
-    .subscribe(tasks => this.tasks = tasks);
+    .subscribe(tasks => { this.tasks = tasks});
     //alert('tasks...' + this.tasks);
   }
   taskDueStatusClass(task:Task) {

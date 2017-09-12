@@ -26,15 +26,15 @@ public get isLoggedIn() : boolean {
   }
   login() {
     this.loginSub = this.loginService
-      .login()
-      .mergeMap(loginResult => this.route.queryParams)
-      .map(qp => qp['redirectTo'])
-      .subscribe(redirectTo => {
-        if (this.userProfileService.isLoggedIn) {
-          let url = redirectTo ? [redirectTo] : [ 'dashboards/dashboard1' ];
-          this.router.navigate(url);
-        }
-      });
+      .login();
+      // .mergeMap(loginResult => this.route.queryParams)
+      // .map(qp => qp['redirectTo'])
+      // .subscribe(redirectTo => {
+      //   //if (this.userProfileService.isLoggedIn) {
+      //     let url = redirectTo ? [redirectTo] : [ 'dashboards/dashboard1' ];
+      //     this.router.navigate(url);
+      //   //}
+      // });
   }
   ngOnDestroy() {
     if (this.loginSub) {

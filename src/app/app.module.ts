@@ -30,12 +30,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdModalDialog} from './components/common/directives/mdModal.component';
 import { WorkingSetResolver } from './views/dashboards/workingSet-resolver.service';
+import { LoginService } from './views/login/login.service';
+import { UserProfileService } from './core/user-profile.service';
 @NgModule({
   declarations: [
     AppComponent,
     TaskboardComponent,
-    AdditionCalculateWindow,
-    
+    AdditionCalculateWindow,    
     MdModalDialog
   ],
   imports: [
@@ -54,7 +55,7 @@ import { WorkingSetResolver } from './views/dashboards/workingSet-resolver.servi
     NoopAnimationsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService, WorkingSetResolver],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService, WorkingSetResolver, LoginService, UserProfileService],
   bootstrap: [AppComponent],
   entryComponents: [ AdditionCalculateWindow, MdModalDialog ]
 })

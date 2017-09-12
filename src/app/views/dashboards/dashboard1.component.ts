@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import 'chart.js';
 
 import { Input, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, NavigationExtras} from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { FlotChartDirective } from '../../components/charts/flotChart';
@@ -31,13 +31,21 @@ export class Dashboard1Component implements OnInit {
     public barChartType:string = 'horizontalBar';
     public barChartOptions:any = {
     scaleShowVerticalLines: false,
+    tooltips: {
+        callbacks: {
+           label: function(tooltipItem) {
+                  //return tooltipItem.yLabel;
+                  return '';
+           }
+        }
+    },
     responsive: true
   };
    public chartColors: Array<any> = [
     ];
-  public barChartLegend:boolean = true;
+  public barChartLegend:boolean = false;
   public barChartData:any[] = [
-    {data: []}
+    {data: [],label:''}
   ];
   data : any[]=[];
   constructor(private router: Router,
@@ -52,6 +60,7 @@ export class Dashboard1Component implements OnInit {
         this.barChartLabels.push(this.workingSets[counter].name);
         this.chartColors.push({backgroundColor : this.determineColor(this.workingSets[counter].workingSetCompliance)});
         this.barChartData[counter].data.push(50);
+        this.barChartData[counter].label = this.workingSets[counter].id;
       };
       //this.barChartData.push(this.data);
     });
@@ -76,6 +85,10 @@ export class Dashboard1Component implements OnInit {
   // events
   public chartClicked(e:any):void {
     console.log(e);
+    var chartElement = e.active[0]._model;
+    console.log(chartElement.label);
+    console.log(chartElement.datasetLabel);  
+    this.router.navigate(['taskboard/taskboard/1'], { queryParams: { bcp: +chartElement.datasetLabel } });
   }
  
   public chartHovered(e:any):void {

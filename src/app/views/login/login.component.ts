@@ -27,6 +27,7 @@ public get isLoggedIn() : boolean {
   login() {
     this.loginSub = this.loginService
       .login();
+      this.loginService.getUserProfile();
       // .mergeMap(loginResult => this.route.queryParams)
       // .map(qp => qp['redirectTo'])
       // .subscribe(redirectTo => {

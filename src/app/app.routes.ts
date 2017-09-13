@@ -16,6 +16,7 @@ import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.comp
 import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
 import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationlayout.component";
 import { WorkingSetResolver } from './views/dashboards/workingSet-resolver.service';
+import { AuthGuard} from '../app/core/auth-guard.service';
 export const ROUTES:Routes = [
   // Main redirect
   {path: '', redirectTo: 'dashboards/dashboard1', pathMatch: 'full'},
@@ -24,6 +25,7 @@ export const ROUTES:Routes = [
   {
     path: 'taskboard', component: BasicLayoutComponent,
      runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+     canActivate: [AuthGuard],
     children: [
       {path: 'taskboard/:filterId', component: TaskboardComponent}
       ]

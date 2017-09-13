@@ -32,6 +32,7 @@ import {MdModalDialog} from './components/common/directives/mdModal.component';
 import { WorkingSetResolver } from './views/dashboards/workingSet-resolver.service';
 import { LoginService } from './views/login/login.service';
 import { UserProfileService } from './core/user-profile.service';
+import { AuthGuard} from '../app/core/auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,7 @@ import { UserProfileService } from './core/user-profile.service';
     NoopAnimationsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService, WorkingSetResolver, LoginService, UserProfileService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService, WorkingSetResolver, LoginService, UserProfileService, AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [ AdditionCalculateWindow, MdModalDialog ]
 })

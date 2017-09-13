@@ -10,6 +10,7 @@ import {Inject} from '@angular/core';
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import { AdditionCalculateWindow, AdditionCalculateWindowData } from '../../components/common/directives/modal.directive';
 import {MdModalDialog} from '../../components/common/directives/mdModal.component';
+
 @Component({
   selector: 'app-taskboard',
   templateUrl: './taskboard.component.html',

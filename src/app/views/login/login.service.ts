@@ -22,6 +22,7 @@ export class LoginService {
                     localStorage.setItem('id_token', response.json().access_token);
                     //alert( localStorage.getItem('id_token'));
                     console.log(response.json().access_token);
+                    this.toggleLogState(true);
                     this.router.navigate(['dashboards/dashboard1']);
                 },
                 error => {
@@ -43,6 +44,7 @@ export class LoginService {
 
   private toggleLogState(val: boolean) {
     this.userProfileService.isLoggedIn = val;
+    console.log(this.userProfileService.isLoggedIn);
   }
 
   getUserProfile() {

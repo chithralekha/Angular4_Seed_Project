@@ -177,7 +177,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
   }
 
   openDialog(task:Task): void {
-    alert(task.code);
+    //alert(task.code);
     let dialogRef = this.dialog.open(MdModalDialog,{
         height: '400px',
         width: '600px',

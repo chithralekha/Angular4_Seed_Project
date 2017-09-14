@@ -3,8 +3,8 @@ import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@a
 import { Observable } from 'rxjs/Observable';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/Rx';
-import { WorkingSet} from '../../components/common/models/workingSet.model';
-import { NavigationService} from '../../components/common/navigation/navigation.service';
+import { WorkingSet} from '../components/common/models/workingSet.model';
+import { NavigationService} from '../components/common/navigation/navigation.service';
 @Injectable()
 export class WorkingSetResolver implements Resolve<WorkingSet> {
     constructor(private workingSetService: NavigationService,

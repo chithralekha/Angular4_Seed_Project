@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute,Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { LoginService } from './login.service';
-import { UserProfileService } from '../../../app/core/user-profile.service';
+import { UserProfileService } from '../../app/core/user-profile.service';
 
 @Component({
   selector: 'login',

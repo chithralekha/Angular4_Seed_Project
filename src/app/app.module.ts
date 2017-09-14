@@ -10,10 +10,10 @@ import {ROUTES} from "./app.routes";
 import { AppComponent } from './app.component';
 
 // App views
-import {DashboardsModule} from "./views/dashboards/dashboards.module";
+import {DashboardsModule} from "./dashboards/dashboards.module";
 import {AppviewsModule} from "./views/appviews/appviews.module";
-import {TaskboardModule} from "./views/taskboard/taskboard.module";
-import { TasksSummaryService } from './views/taskboard/tasks.service';
+import {TaskboardModule} from "./taskboard/taskboard.module";
+import { TasksSummaryService } from './taskboard/tasks.service';
 import {SortablejsModule} from 'angular-sortablejs';
 
 import { NavigationService } from './components/common/navigation/navigation.service';
@@ -21,7 +21,7 @@ import { NavigationService } from './components/common/navigation/navigation.ser
 import { AdditionCalculateWindow } from './components/common/directives/modal.directive';
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
-import { TaskboardComponent } from './views/taskboard/taskboard.component';
+import { TaskboardComponent } from './taskboard/taskboard.component';
 
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
@@ -29,8 +29,8 @@ import {PlunkerMaterialModule} from './components/common/models/materialModule';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdModalDialog} from './components/common/directives/mdModal.component';
-import { WorkingSetResolver } from './views/dashboards/workingSet-resolver.service';
-import { LoginService } from './views/login/login.service';
+import { WorkingSetResolver } from './dashboards/workingSet-resolver.service';
+import { LoginService } from './login/login.service';
 import { UserProfileService } from './core/user-profile.service';
 import { AuthGuard} from '../app/core/auth-guard.service';
 @NgModule({

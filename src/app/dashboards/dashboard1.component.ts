@@ -8,13 +8,13 @@ import { Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras} from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { FlotChartDirective } from '../../components/charts/flotChart';
+import { FlotChartDirective } from '../components/charts/flotChart';
 import { Observable } from 'rxjs/Observable';
 
 import 'jquery-slimscroll';
 
-import { WorkingSet} from '../../components/common/models/workingSet.model';
-import { NavigationService} from '../../components/common/navigation/navigation.service';
+import { WorkingSet} from '../components/common/models/workingSet.model';
+import { NavigationService} from '../components/common/navigation/navigation.service';
 declare var jQuery:any;
 @Component({
   selector: 'dashboard1',

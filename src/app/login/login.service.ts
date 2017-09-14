@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Headers, Http, Response, RequestOptionsArgs } from '@angular/http';
-import { UserProfileService } from '../../../app/core/user-profile.service';
-import { contentHeaders } from '../../../app/core/headers';
+import { UserProfileService } from '../../app/core/user-profile.service';
+import { contentHeaders } from '../../app/core/headers';
 import { Router, ActivatedRoute,Params } from '@angular/router';
 
 @Injectable()

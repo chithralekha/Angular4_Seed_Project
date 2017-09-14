@@ -1,19 +1,19 @@
 import {Routes} from "@angular/router";
 
-import {Dashboard1Component} from "./views/dashboards/dashboard1.component";
-import {Dashboard2Component} from "./views/dashboards/dashboard2.component";
-import {Dashboard3Component} from "./views/dashboards/dashboard3.component";
-import {Dashboard4Component} from "./views/dashboards/dashboard4.component";
-import {Dashboard41Component} from "./views/dashboards/dashboard41.component";
-import {Dashboard5Component} from "./views/dashboards/dashboard5.component";
-import {TaskboardComponent} from "./views/taskboard/taskboard.component";
+import {Dashboard1Component} from "./dashboards/dashboard1.component";
+import {Dashboard2Component} from "./dashboards/dashboard2.component";
+import {Dashboard3Component} from "./dashboards/dashboard3.component";
+import {Dashboard4Component} from "./dashboards/dashboard4.component";
+import {Dashboard41Component} from "./dashboards/dashboard41.component";
+import {Dashboard5Component} from "./dashboards/dashboard5.component";
+import {TaskboardComponent} from "./taskboard/taskboard.component";
 import {StarterViewComponent} from "./views/appviews/starterview.component";
-import {LoginComponent} from "./views/login/login.component";
+import {LoginComponent} from "./login/login.component";
 import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.component";
 import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
 import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationlayout.component";
 
-import { WorkingSetResolver } from './views/dashboards/workingSet-resolver.service';
+import { WorkingSetResolver } from './dashboards/workingSet-resolver.service';
 import { AuthGuard} from '../app/core/auth-guard.service';
 
 export const ROUTES:Routes = [

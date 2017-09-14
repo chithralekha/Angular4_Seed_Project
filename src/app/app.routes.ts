@@ -35,7 +35,8 @@ export const ROUTES:Routes = [
     children: [
       {path: 'dashboard1', component: Dashboard1Component, resolve: {
           workingSets: WorkingSetResolver
-        }},
+        },
+      canActivate: [AuthGuard]},
       {path: 'dashboard2', component: Dashboard2Component},
       {path: 'dashboard3', component: Dashboard3Component},
       {path: 'dashboard4', component: Dashboard4Component},

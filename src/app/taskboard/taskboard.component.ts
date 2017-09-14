@@ -1,15 +1,16 @@
-import { Component, OnInit, OnDestroy, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewContainerRef, ViewEncapsulation, Inject } from '@angular/core';
 import { Router, ActivatedRoute,Params } from '@angular/router';
 import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-import { Task } from './task.model';
-import {TasksSummaryService } from './tasks.service';
+
 import { SortablejsOptions } from 'angular-sortablejs';
-import {Inject} from '@angular/core';
-import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+
+import { Task } from './task.model';
+import { TasksSummaryService } from './tasks.service';
 import { AdditionCalculateWindow, AdditionCalculateWindowData } from '../components/common/directives/modal.directive';
-import {MdModalDialog} from '../components/common/directives/mdModal.component';
+import { MdModalDialog } from '../components/common/directives/mdModal.component';
 
 @Component({
   selector: 'app-taskboard',
@@ -168,6 +169,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
         }
         return dueStatusClass;
   }
+
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
@@ -190,6 +192,7 @@ export class TaskboardComponent implements OnInit, OnDestroy {
       this.animal = result;
     });
   }
+  
   ngOnDestroy() {
     //this.subscription.unsubscribe();
   }

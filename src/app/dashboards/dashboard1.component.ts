@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import * as c3 from 'c3';
 
 // Import Chart.js library
 import 'chart.js';
@@ -63,6 +64,18 @@ export class Dashboard1Component implements OnInit {
         this.barChartData[counter].label = this.workingSets[counter].id;
       };
       //this.barChartData.push(this.data);
+    });
+
+     let chart = c3.generate({
+        bindto: '#chart',
+
+
+        data: {
+        columns: [
+            ['data1', 30, 200, 100, 400, 150, 250],
+            ['data2', 50, 20, 10, 40, 15, 25]
+        ]
+        }
     });
  } 
  determineColor(compliance:number) {

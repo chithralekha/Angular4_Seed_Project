@@ -78,6 +78,7 @@ export class Dashboard1Component implements OnInit {
         }
     });
     let chartBcp = c3.generate({
+      bindto: '#chart',
       data: {
         columns: [
           ['data', 91.4]

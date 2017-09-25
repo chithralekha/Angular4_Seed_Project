@@ -3,7 +3,7 @@ import { Router, ActivatedRoute,Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { LoginService } from './login.service';
 import { UserProfileService } from '../../app/core/user-profile.service';
-
+import { ToastService} from '../../app/core/toast/toast.service';
 @Component({
   selector: 'login',
   templateUrl: 'login.template.html'
@@ -16,7 +16,8 @@ export class LoginComponent implements OnDestroy {
               private router: Router,
               private route: ActivatedRoute,
               private loginService: LoginService,
-              private userProfileService: UserProfileService) {
+              private userProfileService: UserProfileService,
+              private toastService: ToastService) {
               }
   public get isLoggedIn() : boolean {
     return this.userProfileService.isLoggedIn;
@@ -31,6 +32,7 @@ export class LoginComponent implements OnDestroy {
     this.loginSub = this.loginService
       .login();
       this.loginService.getUserProfile();
+      this.toastService.activate(`Successfully logged in`);
       // .mergeMap(loginResult => this.route.queryParams)
       // .map(qp => qp['redirectTo'])
       // .subscribe(redirectTo => {

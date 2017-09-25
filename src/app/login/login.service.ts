@@ -11,6 +11,7 @@ export class LoginService {
     constructor(
         private router: Router,
         private userProfileService: UserProfileService,
+         
         private http: Http) { }
         
         login() {
@@ -21,6 +22,7 @@ export class LoginService {
                 response => {
                     localStorage.setItem('id_token', response.json().access_token);
                     //alert( localStorage.getItem('id_token'));
+                    
                     console.log(response.json().access_token);
                     this.toggleLogState(true);
                     this.router.navigate(['dashboards/dashboard1']);

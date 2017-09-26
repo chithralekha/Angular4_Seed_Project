@@ -4,6 +4,7 @@ import {RouterModule} from "@angular/router";
 
 import {StarterViewComponent} from "./starterview.component";
 import {LoginComponent} from "../../login/login.component";
+import { FormsModule } from '@angular/forms';
 
 import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
@@ -17,7 +18,8 @@ import {SparklineModule } from '../../components/charts/sparkline';
     BrowserModule,
     RouterModule,
     PeityModule,
-    SparklineModule
+    SparklineModule,
+    FormsModule
   ],
   exports: [
     StarterViewComponent,

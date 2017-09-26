@@ -4,13 +4,15 @@ import { Subscription } from 'rxjs/Subscription';
 import { LoginService } from './login.service';
 import { UserProfileService } from '../../app/core/user-profile.service';
 import { ToastService} from '../../app/core/toast/toast.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'login',
   templateUrl: 'login.template.html'
 })
 
 export class LoginComponent implements OnDestroy {
-  
+  userName : string;
+  password : string;
   private loginSub: Subscription;
   constructor(
               private router: Router,
@@ -18,6 +20,8 @@ export class LoginComponent implements OnDestroy {
               private loginService: LoginService,
               private userProfileService: UserProfileService,
               private toastService: ToastService) {
+                this.userName = "";
+                this.password = "";
               }
   public get isLoggedIn() : boolean {
     return this.userProfileService.isLoggedIn;
@@ -30,7 +34,7 @@ export class LoginComponent implements OnDestroy {
 
   login() {
     this.loginSub = this.loginService
-      .login();
+      .login(this.userName, this.password);
       this.loginService.getUserProfile();
       this.toastService.activate(`Successfully logged in`);
       // .mergeMap(loginResult => this.route.queryParams)

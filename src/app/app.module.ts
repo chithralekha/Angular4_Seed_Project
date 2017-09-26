@@ -31,6 +31,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdModalDialog} from './components/common/directives/mdModal.component';
 import { WorkingSetResolver } from './dashboards/workingSet-resolver.service';
 import { LoginService } from './login/login.service';
+
 import { UserProfileService } from './core/user-profile.service';
 import { ToastService} from './core/toast/toast.service';
 import { AuthGuard} from '../app/core/auth-guard.service';

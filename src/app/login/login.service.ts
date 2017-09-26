@@ -14,9 +14,9 @@ export class LoginService {
          
         private http: Http) { }
         
-        login() {
-            
-            let body = "username=" + 'Administrator' + "&password=" + 'S3cret!' + "&grant_type=password";
+        login(userName:string, password:string) {
+            alert(userName + password);
+            let body = "username=" + userName + "&password=" + password + "&grant_type=password";
             return this.http.post('http://localhost:50443/oauth/token', body, { headers: contentHeaders })
             .subscribe(
                 response => {

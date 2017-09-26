@@ -11,8 +11,9 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class LoginComponent implements OnDestroy {
-  userName : string;
+  user : {userName : string;
   password : string;
+  };
   private loginSub: Subscription;
   constructor(
               private router: Router,
@@ -32,7 +33,7 @@ export class LoginComponent implements OnDestroy {
 
   login() {
     this.loginSub = this.loginService
-      .login(this.userName, this.password);
+      .login("Administrator", "S3cret!");
       this.loginService.getUserProfile();
       this.toastService.activate(`Successfully logged in`);
       // .mergeMap(loginResult => this.route.queryParams)

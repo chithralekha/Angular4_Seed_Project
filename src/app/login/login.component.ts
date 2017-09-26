@@ -20,8 +20,6 @@ export class LoginComponent implements OnDestroy {
               private loginService: LoginService,
               private userProfileService: UserProfileService,
               private toastService: ToastService) {
-                this.userName = "";
-                this.password = "";
               }
   public get isLoggedIn() : boolean {
     return this.userProfileService.isLoggedIn;

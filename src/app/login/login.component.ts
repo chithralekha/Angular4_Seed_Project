@@ -11,9 +11,8 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class LoginComponent implements OnDestroy {
-  user : {userName : string;
-  password : string;
-  };
+ userName : string;
+ password : string;
   private loginSub: Subscription;
   constructor(
               private router: Router,

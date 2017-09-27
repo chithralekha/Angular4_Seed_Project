@@ -36,6 +36,8 @@ import { UserProfileService } from './core/user-profile.service';
 import { ToastService} from './core/toast/toast.service';
 import { AuthGuard} from '../app/core/auth-guard.service';
 import { ToastModule } from './core/toast/toast.module';
+import { SpinnerModule} from './core/spinner/spinner.module';
+import { SpinnerService} from './core/spinner/spinner.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,9 +60,10 @@ import { ToastModule } from './core/toast/toast.module';
     BrowserAnimationsModule,
     NoopAnimationsModule,
     RouterModule.forRoot(ROUTES),
-    ToastModule
+    ToastModule,
+    SpinnerModule
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService, WorkingSetResolver, LoginService, UserProfileService, AuthGuard,ToastService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},TasksSummaryService, NavigationService, WorkingSetResolver, LoginService, UserProfileService, AuthGuard,ToastService, SpinnerService],
   bootstrap: [AppComponent],
   entryComponents: [ AdditionCalculateWindow, MdModalDialog ]
 })

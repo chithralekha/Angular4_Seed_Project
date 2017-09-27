@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
 import { Router, ActivatedRoute,Params } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { LoginService } from './login.service';
@@ -11,8 +11,9 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class LoginComponent implements OnDestroy {
- userName : string;
- password : string;
+@Input() userName:string;
+@Input() password:string;
+model: any = {};
   private loginSub: Subscription;
   constructor(
               private router: Router,
@@ -31,8 +32,10 @@ export class LoginComponent implements OnDestroy {
   }
 
   login() {
+    alert(this.model.username);
+    alert(this.model.password);
     this.loginSub = this.loginService
-      .login("Administrator", "S3cret!");
+      .login(this.model.username, this.model.password);
       this.loginService.getUserProfile();
       this.toastService.activate(`Successfully logged in`);
       // .mergeMap(loginResult => this.route.queryParams)

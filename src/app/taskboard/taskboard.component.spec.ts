@@ -1,12 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TaskboardComponent } from './taskboard.component';
-import {SortablejsModule} from 'angular-sortablejs';
+import { SortablejsModule } from 'angular-sortablejs';
 import { FormsModule } from '@angular/forms';
 import { TasksSummaryService } from './tasks.service';
 import { Headers, HttpModule, Response, Http} from '@angular/http';
 import { HttpClient } from '@angular/common/http';
-import {BrowserModule} from "@angular/platform-browser";
+import { BrowserModule } from "@angular/platform-browser";
 import { MockBackend } from '@angular/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
